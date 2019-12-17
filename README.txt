@@ -1,0 +1,1 @@
+该项目是一个在线点餐系统，有一个主页面首页index.html和两个子页面son.html和order.html，存储方式利用本地数据库。
