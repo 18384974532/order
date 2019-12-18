@@ -1,0 +1,177 @@
+* {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+body,ul{
+  font-size: 20px;
+  color: #444;
+  margin:0;
+  padding: 0;
+  border: 0;
+  outline: 100%;
+    background:#FAE8C8;
+}
+
+.container{
+  display: block;
+  margin: 0 auto;
+  width:1120px;
+}
+
+.clear{
+  clear: both;
+}
+
+container:before,
+container:after,
+clear-float:after,
+clear-float:before{
+  content: "";
+  display: block;
+  clear: both;
+}
+
+.col-1,
+.col-2,
+.col-3,
+.col-4,
+.col-5,
+.col-6,
+.col-7,
+.col-8,
+.col-9{
+  position: relative;
+  min-height: 1px;
+  float: left;
+}
+
+.col-1{
+  width: 10%;
+}
+
+.col-2{
+  width: 20%;
+}
+
+.col-3{
+  width: 30%;
+}
+
+.col-4{
+  width: 40%;
+}
+
+.col-5{
+  width: 50%;
+}
+
+.col-6{
+  width: 60%;
+}
+
+.col-7{
+  width: 70%;
+}
+
+.col-8{
+  width: 80%;
+}
+
+.col-9{
+  width: 90%;
+}
+
+.col-10{
+  width: 100%;
+}
+
+img{
+  width: 100%;
+}
+
+.fl{
+  float: left;
+}
+
+.fr{
+  float: right;
+}
+
+a:hover {
+    color: #96012D;
+}
+
+
+#logoline{
+  height: 130px;
+  background-image:linear-gradient(-113deg,#A1000E,  #D51315);
+}
+
+.logo img{
+  width: 74%;
+}
+
+.login a{
+  color: white;
+  font-size: 15px;
+  text-align: center;
+  vertical-align: middle;
+  text-decoration: none;
+}
+
+.login .fr{
+  line-height: 120px;
+}
+
+.login a:hover{
+  color: #333;
+}
+
+#header{
+  background: #fff;
+  font-size: 30px;
+}
+
+#header a{
+  margin: 10px;
+  color: #444;
+  font-family: Microsoft Yahei,黑体;
+  text-decoration: none;
+}
+
+#header .item{
+  display: inline-block;
+  padding: 6px 10px;
+}
+
+#header .item:hover{
+  background-color: #eee
+}
+
+.container .col-3{
+  padding-top: 20px;
+  text-align: center;
+  font-size: 30px;
+  font-family: Microsoft Yahei,黑体;
+}
+
+.container .col-4{
+  padding-top: 20px;
+  text-align: center;
+  font-size: 30px;
+  font-family: Microsoft Yahei,黑体;
+}
+
+#but1{
+  display: block;
+  margin: 0 auto;
+  font-size: 20px;
+  border: 1px solid black;
+  border-radius: 20px;
+}
+
+#but1:hover{
+  background: #aaa;
+}
