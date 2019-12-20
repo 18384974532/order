@@ -56,40 +56,52 @@ contex.executeSql('create table if not exists userinf(name,price,num)');
 });
 
 
-var obtn = document.getElementById('piaoxiang');
-var obtn1 = document.getElementById('xiangjian');
-var obtn2 = document.getElementById('zishu');
-var obtn3 = document.getElementById('xiangcong');
-var obtn4 = document.getElementById('xiangla');
-var obtn5 = document.getElementById('xiangling');
-var obtn6 = document.getElementById('shengchang');
-var obtn7 = document.getElementById('jizhong');
-var obtn8 = document.getElementById('yexiang');
-var obtn9 = document.getElementById('taishi');
-var obtn10 = document.getElementById('piaoxiangjian');
-var obtn11 = document.getElementById('xiangjianjian');
-var obtn12 = document.getElementById('zishujian');
-var obtn13 = document.getElementById('xiangcongjian');
-var obtn14 = document.getElementById('xianglajian');
-var obtn15 = document.getElementById('xianglingjian');
-var obtn16 = document.getElementById('shengchangjian');
-var obtn17 = document.getElementById('jizhongjian');
-var obtn18 = document.getElementById('yexiangjian');
-var obtn19 = document.getElementById('taishijian');
+var obtn = document.getElementById('cs');
+var obtn1 = document.getElementById('nr');
+var obtn2 = document.getElementById('fsy');
+var obtn3 = document.getElementById('gdc');
+var obtn4 = document.getElementById('cd');
+var obtn5 = document.getElementById('mpd');
+var obtn6 = document.getElementById('lcn');
+var obtn7 = document.getElementById('bz');
+var obtn8 = document.getElementById('dz');
+var obtn9 = document.getElementById('ght');
+var obtn10 = document.getElementById('csb');
+var obtn11 = document.getElementById('nrw');
+var obtn12 = document.getElementById('fsyt');
+var obtn13 = document.getElementById('gdcf');
+var obtn14 = document.getElementById('cdf');
+var obtn15 = document.getElementById('mpdf');
+var obtn16 = document.getElementById('lcng');
+var obtn17 = document.getElementById('bzf');
+var obtn18 = document.getElementById('dzx');
+var obtn19 = document.getElementById('ghto');
 
+db.transaction(function(contex){
+contex.executeSql('select * from userinf',[],function(con,data){
+//console.log(data);
+var rows=data.rows.length,i,j=1;
+
+for(var i=0;i<rows;i++){
+  if(data.rows.item(i).num!=0){
+  document.getElementById('jian'+j).innerHTML = data.rows.item(i).num;
+  j++;
+  }
+   }
+});
+});
 
 
 obtn.onclick = function(){
     document.getElementById('jian1').innerHTML++;
     if(document.getElementById('jian1').innerHTML==1){
       db.transaction(function(contex){
-        contex.executeSql('insert into userinf(name,price,num) values("飘香榴莲酥",10,0)');
+        contex.executeSql('insert into userinf(name,price,num) values("叉烧包",10,0)');
       });
     }
     db.transaction(function(contex){
-      contex.executeSql('update userinf set num=num+1 where name="飘香榴莲酥"');
+      contex.executeSql('update userinf set num=num+1 where name="叉烧包"');
     });
-  alert('成功将飘香榴莲酥加入菜单');
 }
 
 obtn10.onclick = function(){
@@ -101,16 +113,15 @@ obtn10.onclick = function(){
     document.getElementById('jian1').innerHTML--;
     if (document.getElementById('jian1').innerHTML==0) {
       db.transaction(function(contex){
-        contex.executeSql('delete from userinf where name="飘香榴莲酥"');
+        contex.executeSql('delete from userinf where name="叉烧包"');
       });
     }
     if(document.getElementById('jian1').innerHTML>0)
     {
       db.transaction(function(contex){
-        contex.executeSql('update userinf set num=num-1 where name="飘香榴莲酥"');
+        contex.executeSql('update userinf set num=num-1 where name="叉烧包"');
       });
     }
-  alert('成功将飘香榴莲酥移除菜单');
   }
 }
 
@@ -118,13 +129,13 @@ obtn1.onclick = function(){
     document.getElementById('jian2').innerHTML++;
     if(document.getElementById('jian2').innerHTML==1){
     db.transaction(function(contex){
-    contex.executeSql('insert into userinf(name,price,num) values("香煎野菜饼",9,0)');
+    contex.executeSql('insert into userinf(name,price,num) values("牛肉丸粿条",9,0)');
   });
 }
 db.transaction(function(contex){
-  contex.executeSql('update userinf set num=num+1 where name="香煎野菜饼"');
+  contex.executeSql('update userinf set num=num+1 where name="牛肉丸粿条"');
 });
-  alert('成功将香煎野菜饼加入菜单');
+
 }
 
 obtn11.onclick = function(){
@@ -136,16 +147,15 @@ obtn11.onclick = function(){
     document.getElementById('jian2').innerHTML--;
     if(document.getElementById('jian2').innerHTML==0){
     db.transaction(function(contex){
-    contex.executeSql('delete from userinf where name="香煎野菜饼"');
+    contex.executeSql('delete from userinf where name="牛肉丸粿条"');
   });
 }
   if(document.getElementById('jian2').innerHTML>0)
 {
   db.transaction(function(contex){
-    contex.executeSql('update userinf set num=num-1 where name="香煎野菜饼"');
+    contex.executeSql('update userinf set num=num-1 where name="牛肉丸粿条"');
   });
 }
-  alert('成功将香煎野菜饼移除菜单');
   }
 }
 
@@ -153,13 +163,12 @@ obtn2.onclick = function(){
   document.getElementById('jian3').innerHTML++;
   if (document.getElementById('jian3').innerHTML==1) {
   db.transaction(function(contex){
-    contex.executeSql('insert into userinf(name,price,num) values("紫薯流沙球",10,0)');
+    contex.executeSql('insert into userinf(name,price,num) values("反沙芋头",10,0)');
   });
 }
 db.transaction(function(contex){
-  contex.executeSql('update userinf set num=num+1 where name="紫薯流沙球"');
+  contex.executeSql('update userinf set num=num+1 where name="反沙芋头"');
 });
-  alert('成功将紫薯流沙球加入菜单');
 }
 
 obtn12.onclick = function(){
@@ -171,16 +180,15 @@ obtn12.onclick = function(){
     document.getElementById('jian3').innerHTML--;
     if (document.getElementById('jian3').innerHTML==0) {
     db.transaction(function(contex){
-      contex.executeSql('delete from userinf where name="紫薯流沙球"');
+      contex.executeSql('delete from userinf where name="反沙芋头"');
     });
   }
   if(document.getElementById('jian3').innerHTML>0)
 {
   db.transaction(function(contex){
-    contex.executeSql('update userinf set num=num-1 where name="紫薯流沙球"');
+    contex.executeSql('update userinf set num=num-1 where name="反沙芋头"');
   });
 }
-    alert('成功将紫薯流沙球移除菜单');
   }
 }
 
@@ -188,13 +196,12 @@ obtn3.onclick = function(){
     document.getElementById('jian4').innerHTML++;
     if (document.getElementById('jian4').innerHTML==1) {
   db.transaction(function(contex){
-    contex.executeSql('insert into userinf(name,price,num) values("香葱爆肥羊",13,0)');
+    contex.executeSql('insert into userinf(name,price,num) values("广东肠粉",13,0)');
   });
 }
 db.transaction(function(contex){
-  contex.executeSql('update userinf set num=num+1 where name="香葱爆肥羊"');
+  contex.executeSql('update userinf set num=num+1 where name="广东肠粉"');
 });
-  alert('成功将香葱爆肥羊加入菜单');
 }
 
 obtn13.onclick = function(){
@@ -204,18 +211,17 @@ obtn13.onclick = function(){
   }
   else {
     document.getElementById('jian4').innerHTML--;
-    if (document.getElementById('jian4').innerHTML==1) {
+    if (document.getElementById('jian4').innerHTML==0) {
   db.transaction(function(contex){
-    contex.executeSql('delete from userinf where name="香葱爆肥羊"');
+    contex.executeSql('delete from userinf where name="广东肠粉"');
   });
 }
 if(document.getElementById('jian4').innerHTML>0)
 {
 db.transaction(function(contex){
-  contex.executeSql('update userinf set num=num-1 where name="香葱爆肥羊"');
+  contex.executeSql('update userinf set num=num-1 where name="广东肠粉"');
 });
 }
-  alert('成功将香葱爆肥羊移除菜单');
   }
 }
 
@@ -224,13 +230,12 @@ obtn4.onclick = function(){
   document.getElementById('jian5').innerHTML++;
   if (document.getElementById('jian5').innerHTML==1) {
   db.transaction(function(contex){
-    contex.executeSql('insert into userinf(name,price,num) values("香辣牛肉",17,0)');
+    contex.executeSql('insert into userinf(name,price,num) values("臭豆腐",10,0)');
   });
 }
 db.transaction(function(contex){
-  contex.executeSql('update userinf set num=num+1 where name="香辣牛肉"');
+  contex.executeSql('update userinf set num=num+1 where name="臭豆腐"');
 });
-  alert('成功将香辣牛肉加入菜单');
 }
 
 obtn14.onclick = function(){
@@ -240,18 +245,17 @@ obtn14.onclick = function(){
   }
   else {
     document.getElementById('jian5').innerHTML--;
-    if (document.getElementById('jian5').innerHTML==1) {
+    if (document.getElementById('jian5').innerHTML==0) {
       db.transaction(function(contex){
-        contex.executeSql('delete from userinf where name="香辣牛肉"');
+        contex.executeSql('delete from userinf where name="臭豆腐"');
           });
         }
         if(document.getElementById('jian5').innerHTML>0)
         {
         db.transaction(function(contex){
-          contex.executeSql('update userinf set num=num-1 where name="香辣牛肉"');
+          contex.executeSql('update userinf set num=num-1 where name="臭豆腐"');
         });
         }
-          alert('成功将香辣牛肉移除菜单');
   }
 }
 
@@ -259,13 +263,12 @@ obtn5.onclick = function(){
   document.getElementById('jian6').innerHTML++;
   if (document.getElementById('jian6').innerHTML==1) {
   db.transaction(function(contex){
-    contex.executeSql('insert into userinf(name,price,num) values("响铃三文鱼",18,0)');
+    contex.executeSql('insert into userinf(name,price,num) values("麻婆豆腐 ",8,0)');
   });
 }
 db.transaction(function(contex){
-  contex.executeSql('update userinf set num=num+1 where name="响铃三文鱼"');
+  contex.executeSql('update userinf set num=num+1 where name="麻婆豆腐 "');
 });
-  alert('成功将响铃三文鱼加入菜单');
 }
 
 obtn15.onclick = function(){
@@ -275,18 +278,17 @@ obtn15.onclick = function(){
   }
   else {
     document.getElementById('jian6').innerHTML--;
-    if (document.getElementById('jian6').innerHTML==1) {
+    if (document.getElementById('jian6').innerHTML==0) {
       db.transaction(function(contex){
-        contex.executeSql('delete from userinf where name="响铃三文鱼"');
+        contex.executeSql('delete from userinf where name="麻婆豆腐 "');
           });
         }
         if(document.getElementById('jian6').innerHTML>0)
         {
         db.transaction(function(contex){
-          contex.executeSql('update userinf set num=num-1 where name="响铃三文鱼"');
+          contex.executeSql('update userinf set num=num-1 where name="麻婆豆腐 "');
         });
         }
-          alert('成功将响铃三文鱼移除菜单');
   }
 }
 
@@ -294,13 +296,12 @@ obtn6.onclick = function(){
   document.getElementById('jian7').innerHTML++;
   if (document.getElementById('jian7').innerHTML==1) {
   db.transaction(function(contex){
-    contex.executeSql('insert into userinf(name,price,num) values("啫啫生肠",15,0)');
+    contex.executeSql('insert into userinf(name,price,num) values("辣炒年糕",15,0)');
   });
 }
 db.transaction(function(contex){
-  contex.executeSql('update userinf set num=num+1 where name="啫啫生肠"');
+  contex.executeSql('update userinf set num=num+1 where name="辣炒年糕"');
 });
-  alert('成功将啫啫生肠加入菜单');
 }
 
 obtn16.onclick = function(){
@@ -310,18 +311,17 @@ obtn16.onclick = function(){
   }
   else {
     document.getElementById('jian7').innerHTML--;
-    if (document.getElementById('jian7').innerHTML==1) {
+    if (document.getElementById('jian7').innerHTML==0) {
       db.transaction(function(contex){
-        contex.executeSql('delete from userinf where name="啫啫生肠"');
+        contex.executeSql('delete from userinf where name="辣炒年糕"');
           });
         }
         if(document.getElementById('jian7').innerHTML>0)
         {
         db.transaction(function(contex){
-          contex.executeSql('update userinf set num=num-1 where name="啫啫生肠"');
+          contex.executeSql('update userinf set num=num-1 where name="辣炒年糕"');
         });
         }
-          alert('成功将啫啫生肠移除菜单');
   }
 }
 
@@ -329,13 +329,12 @@ obtn7.onclick = function(){
   document.getElementById('jian8').innerHTML++;
   if (document.getElementById('jian8').innerHTML==1) {
   db.transaction(function(contex){
-    contex.executeSql('insert into userinf(name,price,num) values("啫啫鸡中宝",17,0)');
+    contex.executeSql('insert into userinf(name,price,num) values("煲仔饭",15,0)');
   });
 }
 db.transaction(function(contex){
-  contex.executeSql('update userinf set num=num+1 where name="啫啫鸡中宝"');
+  contex.executeSql('update userinf set num=num+1 where name="煲仔饭"');
 });
-  alert('成功将啫啫鸡中宝加入菜单');
 }
 
 obtn17.onclick = function(){
@@ -345,18 +344,17 @@ obtn17.onclick = function(){
   }
   else {
     document.getElementById('jian8').innerHTML--;
-    if (document.getElementById('jian8').innerHTML==1) {
+    if (document.getElementById('jian8').innerHTML==0) {
       db.transaction(function(contex){
-        contex.executeSql('delete from userinf where name="啫啫鸡中宝"');
+        contex.executeSql('delete from userinf where name="煲仔饭"');
           });
         }
         if(document.getElementById('jian8').innerHTML>0)
         {
         db.transaction(function(contex){
-          contex.executeSql('update userinf set num=num-1 where name="啫啫鸡中宝"');
+          contex.executeSql('update userinf set num=num-1 where name="煲仔饭"');
         });
         }
-          alert('成功将啫啫鸡中宝移除菜单');
   }
 }
 
@@ -364,13 +362,12 @@ obtn8.onclick = function(){
   document.getElementById('jian9').innerHTML++;
   if (document.getElementById('jian9').innerHTML==1) {
   db.transaction(function(contex){
-    contex.executeSql('insert into userinf(name,price,num) values("椰香糖藕",11,0)');
+    contex.executeSql('insert into userinf(name,price,num) values("美味大闸蟹",21,0)');
   });
 }
 db.transaction(function(contex){
-  contex.executeSql('update userinf set num=num+1 where name="椰香糖藕"');
+  contex.executeSql('update userinf set num=num+1 where name="美味大闸蟹"');
 });
-  alert('成功将椰香糖藕加入菜单');
 }
 
 obtn18.onclick = function(){
@@ -380,18 +377,17 @@ obtn18.onclick = function(){
   }
   else {
     document.getElementById('jian9').innerHTML--;
-    if (document.getElementById('jian9').innerHTML==1) {
+    if (document.getElementById('jian9').innerHTML==0) {
       db.transaction(function(contex){
-        contex.executeSql('delete from userinf where name="椰香糖藕"');
+        contex.executeSql('delete from userinf where name="美味大闸蟹"');
           });
         }
         if(document.getElementById('jian9').innerHTML>0)
         {
         db.transaction(function(contex){
-          contex.executeSql('update userinf set num=num-1 where name="椰香糖藕"');
+          contex.executeSql('update userinf set num=num-1 where name="美味大闸蟹"');
         });
         }
-          alert('成功将椰香糖藕移除菜单');
   }
 }
 
@@ -399,13 +395,12 @@ obtn9.onclick = function(){
   document.getElementById('jian10').innerHTML++;
   if (document.getElementById('jian10').innerHTML==1) {
   db.transaction(function(contex){
-    contex.executeSql('insert into userinf(name,price,num) values("泰式凤爪",19,0)');
+    contex.executeSql('insert into userinf(name,price,num) values("桂花糖藕",12,0)');
   });
 }
 db.transaction(function(contex){
-  contex.executeSql('update userinf set num=num+1 where name="泰式凤爪"');
+  contex.executeSql('update userinf set num=num+1 where name="桂花糖藕"');
 });
-  alert('成功将泰式凤爪加入菜单');
 }
 
 obtn19.onclick = function(){
@@ -415,18 +410,17 @@ obtn19.onclick = function(){
   }
   else {
     document.getElementById('jian10').innerHTML--;
-    if (document.getElementById('jian10').innerHTML==1) {
+    if (document.getElementById('jian10').innerHTML==0) {
       db.transaction(function(contex){
-        contex.executeSql('delete from userinf where name="泰式凤爪"');
+        contex.executeSql('delete from userinf where name="桂花糖藕"');
           });
         }
         if(document.getElementById('jian10').innerHTML>0)
         {
         db.transaction(function(contex){
-          contex.executeSql('update userinf set num=num-1 where name="泰式凤爪"');
+          contex.executeSql('update userinf set num=num-1 where name="桂花糖藕"');
         });
         }
-          alert('成功将泰式凤爪移除菜单');
   }
 }
 
